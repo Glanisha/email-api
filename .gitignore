@@ -19,3 +19,4 @@ Thumbs.db
 
 # Optional: if you're using VSCode
 .vscode/
+.vercel
