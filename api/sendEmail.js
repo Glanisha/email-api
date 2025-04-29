@@ -24,12 +24,12 @@ module.exports = async (req, res) => {
       from: `"InternGuide" <${process.env.EMAIL_USER}>`,
       to: email,
       subject: 'Message from InternGuide App',
-      text: text,
-      html: `<p>${text}</p>`,
+      text,
+      html: `<p>${text}</p>`
     });
 
-    res.status(200).json({ message: 'Email sent', messageId: info.messageId });
+    return res.status(200).json({ message: 'Email sent', messageId: info.messageId });
   } catch (error) {
-    res.status(500).json({ message: 'Email failed', error: error.message });
+    return res.status(500).json({ message: 'Failed to send email', error: error.message });
   }
 };
